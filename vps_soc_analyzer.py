@@ -1,9 +1,6 @@
 import re
 
 def extract_ip(log_line: str) -> str | None:
-import re
-
-def extract_ip(log_line: str) -> str | None:
     """Извлекает IPv4-адрес из строки лога SSH."""
     if "Failed password" in log_line or "Invalid user" in log_line:
         match = re.search(r'from\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})', log_line)
@@ -52,4 +49,3 @@ def detect_suspicious_paths(log_line: str) -> bool:
         if re.search(pattern, log_line, re.IGNORECASE):
             return True
     return False
-EOF
